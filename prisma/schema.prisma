@@ -13,6 +13,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Client{
+  id String @id @map("_id") @db.ObjectId @default(auto())
+  email String?
+  phoneNumber BigInt @unique
+}
+
+
 model Item{
   id String @id @map("_id") @db.ObjectId @default(auto())
   name String 
