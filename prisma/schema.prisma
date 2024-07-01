@@ -9,6 +9,39 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+model Item{
+  id String @id @map("_id") @db.ObjectId @default(auto())
+  name String 
+  images String
+  description Description
+  actualPrice Int
+  hikedPrice Int
+  drop Drop @relation(fields: [dropId], references: [id])
+  dropId String @db.ObjectId
+  category String[]
+  sizes Sizes[]
+}
+
+
+model Drop{
+  id String @id @db.ObjectId @map("_id") @default(auto())
+  name String
+  createdAt DateTime
+  uploaded Boolean @default(false)
+  updatedAt DateTime
+  endedAt DateTime?
+  salesOrders Int
+  items Item[]
+}
+
+type Description{
+  type String?
+}
+type Sizes{
+  sizeName String
+  stockCount Int
 }
