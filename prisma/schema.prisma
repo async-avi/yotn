@@ -17,6 +17,8 @@ model Client{
   id String @id @map("_id") @db.ObjectId @default(auto())
   email String?
   phoneNumber BigInt @unique
+  address String?
+  orders Order[]
 }
 
 
@@ -31,6 +33,7 @@ model Item{
   dropId String @db.ObjectId
   category String[]
   sizes Sizes[]
+  ordersDone Order[]
 }
 
 
@@ -45,6 +48,20 @@ model Drop{
   items Item[]
 }
 
+model Order{
+  id String @id @map("_id") @db.ObjectId @default(auto())
+  client Client @relation(fields: [buyerId], references: [id])
+  buyerId String @db.ObjectId
+  shippingAddress String 
+  item Item @relation(fields: [itemPurchased], references: [id])
+  itemPurchased String @db.ObjectId
+  quantity Int
+  totalAmount Int
+  orderedOn DateTime @default(now())
+  expectedDelivery DateTime
+  status String @default("PENDING")
+}
+
 type Description{
   type String?
 }
@@ -52,3 +69,4 @@ type Sizes{
   sizeName String
   stockCount Int
 }
+
