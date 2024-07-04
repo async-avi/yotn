@@ -1,8 +1,11 @@
+import NavBar from "@/components/NavBar";
+import Image from "next/image";
+
 function page() {
   return (
-    <div>
-      <h1 className="text-black underline">YOTN</h1>
-    </div>
+    <main>
+      <nav><NavBar/></nav>
+    </main>
   );
 }
 
