@@ -1,10 +1,15 @@
-import NavBar from "@/components/NavBar";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import Image from "next/image";
+import homeBg from "../../public/home bg.jpg";
+import NavBar from "@/components/NavBar/index";
 
 function page() {
   return (
     <main>
-      <nav><NavBar/></nav>
+      <nav>
+        <AnnouncementBar />
+        <NavBar />
+      </nav>
     </main>
   );
 }
