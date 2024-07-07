@@ -15,7 +15,7 @@ datasource db {
 
 model Client{
   id String @id @map("_id") @db.ObjectId @default(auto())
-  email String?
+  fullName String
   phoneNumber BigInt @unique
   address String?
   orders Order[]
