@@ -8,8 +8,7 @@ const nextConfig = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value:
-              "https://1f290e8f-6615-48a5-ba20-eef28a350f1e-00-1iig1kblkzvbq.sisko.replit.dev",
+            value: "http://192.168.1.21:5173",
           },
           {
             key: "Access-Control-Allow-Methods",
@@ -23,13 +22,12 @@ const nextConfig = {
         ],
       },
       {
-        source: "/api/:path*",
+        source: "/api/products/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value:
-              "https://1f290e8f-6615-48a5-ba20-eef28a350f1e-00-1iig1kblkzvbq.sisko.replit.dev",
+            value: "http://192.168.1.21:5173",
           },
           {
             key: "Access-Control-Allow-Methods",
