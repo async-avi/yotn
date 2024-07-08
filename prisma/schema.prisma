@@ -62,6 +62,15 @@ model Order{
   status String @default("PENDING")
 }
 
+model Declarations{
+  id String @id @map("_id") @db.ObjectId @default(auto())
+  title String
+  description String
+  page String
+  createdBy String
+  createdAt DateTime @default(now())
+}
+
 type Description{
   type String?
 }
