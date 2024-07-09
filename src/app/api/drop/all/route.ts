@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
       const response = await errorHandler(403, "Unauthorized");
       return NextResponse.json(response);
     }
-    await prisma.drop.create({
+    const newDrop = await prisma.drop.create({
       data: {
         name,
         description,
@@ -40,6 +40,12 @@ export async function POST(req: NextRequest) {
         createdBy,
       },
     });
+    const response = await asyncHandler(
+      201,
+      "Drop created successfully",
+      newDrop.id
+    );
+    return NextResponse.json(response);
   } catch (error: any) {
     const response = await errorHandler(500, `${error.message}`);
     return NextResponse.json(response);
