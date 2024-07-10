@@ -1,10 +1,9 @@
 import errorHandler from "@/handlers/errorHandler";
-import { NextPageContext } from "next";
 import { NextResponse, type NextRequest } from "next/server";
 import prisma from "../../../../../../db";
 import asyncHandler from "@/handlers/asyncHandler";
 
-export async function PUT(req: NextRequest, context: any) {
+export async function PATCH(req: NextRequest, context: any) {
   const { params } = context;
   const query: any = req.nextUrl.searchParams.get("f");
   const requestBody = await req.json();
