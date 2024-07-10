@@ -17,7 +17,8 @@ model Client{
   id String @id @map("_id") @db.ObjectId @default(auto())
   fullName String
   phoneNumber BigInt @unique
-  address String?
+  password String
+  address String @default("")
   orders Order[]
 }
 
@@ -40,11 +41,14 @@ model Item{
 model Drop{
   id String @id @db.ObjectId @map("_id") @default(auto())
   name String
-  createdAt DateTime
-  uploaded Boolean @default(false)
-  updatedAt DateTime
+  description String
+  imageUrl String
+  salesOrders Int @default(0)
+  createdBy String
+  createdAt DateTime @default(now())
+  active Boolean @default(false)
+  updatedAt DateTime @default(now())
   endedAt DateTime?
-  salesOrders Int
   items Item[]
 }
 
