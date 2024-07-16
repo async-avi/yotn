@@ -4,7 +4,7 @@ import prisma from "../../../../../../db";
 import asyncHandler from "@/handlers/asyncHandler";
 
 export async function PATCH(req: NextRequest, context: any) {
-  const auth = req.cookies.get("adminAuth");
+  const auth = req.cookies.get("auth");
   const { params } = context;
   const query: any = req.nextUrl.searchParams.get("q");
   const set = req.nextUrl.searchParams.get("s");
@@ -36,7 +36,7 @@ export async function PATCH(req: NextRequest, context: any) {
 }
 
 export async function DELETE(req: NextRequest, context: any) {
-  const auth = req.cookies.get("adminAuth");
+  const auth = req.cookies.get("auth");
   const { params } = context;
 
   try {

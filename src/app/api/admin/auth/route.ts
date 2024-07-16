@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     const response = await asyncHandler(
       200,
       "User authenticated",
-      `${reqBody.username}`
+      `${reqBody.username.toLowerCase()}`
     );
     return NextResponse.json(response);
   } else {

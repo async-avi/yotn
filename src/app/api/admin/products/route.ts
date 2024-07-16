@@ -22,7 +22,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
-  const auth = req.cookies.get("adminAuth");
+  const auth = req.cookies.get("auth");
   const requestBody = await req.json();
   const {
     name,
