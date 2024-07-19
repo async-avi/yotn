@@ -23,11 +23,11 @@ model Client{
 }
 
 
-model Item{
+model Product{
   id String @id @map("_id") @db.ObjectId @default(auto())
   name String 
-  images String
-  description Description
+  images String[]
+  description Description[]
   actualPrice Int
   hikedPrice Int
   drop Drop @relation(fields: [dropId], references: [id])
@@ -49,7 +49,7 @@ model Drop{
   active Boolean @default(false)
   updatedAt DateTime @default(now())
   endedAt DateTime?
-  items Item[]
+  products Product[]
 }
 
 model Order{
@@ -57,7 +57,7 @@ model Order{
   client Client @relation(fields: [buyerId], references: [id])
   buyerId String @db.ObjectId
   shippingAddress String 
-  item Item @relation(fields: [itemPurchased], references: [id])
+  product Product @relation(fields: [itemPurchased], references: [id])
   itemPurchased String @db.ObjectId
   quantity Int
   totalAmount Int
@@ -76,7 +76,7 @@ model Declarations{
 }
 
 type Description{
-  type String?
+  type Boolean 
 }
 type Sizes{
   sizeName String
