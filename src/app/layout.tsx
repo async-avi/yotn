@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import { RecoilRoot } from "recoil";
 
 const roboto = Roboto({ subsets: ["latin"], weight: ["300", "400", "700"] });
 

@@ -1,16 +1,15 @@
 import AnnouncementBar from "@/components/AnnouncementBar";
-import Image from "next/image";
-import homeBg from "../../public/home bg.jpg";
-import NavBar from "@/components/NavBar/index";
+import React from "react";
+import NavBar from "@/components/NavBar";
 
 function page() {
   return (
-    <main>
+    <div className="h-lvh w-screen">
+      <AnnouncementBar />
       <nav>
-        <AnnouncementBar />
         <NavBar />
       </nav>
-    </main>
+    </div>
   );
 }
 
