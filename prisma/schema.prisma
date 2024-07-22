@@ -55,7 +55,7 @@ model Drop{
 }
 
 
-model Declarations{
+model Announcement{
   id String @id @map("_id") @db.ObjectId @default(auto())
   title String
   description String
