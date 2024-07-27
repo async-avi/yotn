@@ -1,8 +1,10 @@
 import Image from "next/image";
 import modelBg from "../../public/modelBg.jpg";
+import modelBg2 from "../../public/modelBg2.jpg";
 // import axios from "axios";
 // import Card from "@repo/ui/card";
-// import { testBlogData } from "../test/testBlogData";
+import { testBlogData } from "@/components/test/testBlog";
+import BlogCard from "@/components/BlogCard";
 // import BlogCard from "@repo/ui/blogCard";
 
 // async function getAllBlogs() {
@@ -18,7 +20,19 @@ import modelBg from "../../public/modelBg.jpg";
 
 async function BlogRender() {
   // const data = await getAllBlogs();
-  return <></>;
+  return (
+    <div className="w-full flex flex-col gap-3 h-screen overflow-y-scroll">
+      {testBlogData.map((post) => (
+        <BlogCard
+          createdAt={post.createdAt}
+          description={post.description}
+          mainImageUrl={post.mainImageUrl}
+          title={post.title}
+          key={post.id}
+        />
+      ))}
+    </div>
+  );
 }
 
 function page() {
@@ -37,15 +51,14 @@ function page() {
             </div>
           </div>
           <Image
-            className="w-auto h-full aspect-[1.414:1]"
+            className="w-full h-full aspect-[1.414:1]"
             alt="model image"
-            src={modelBg}
+            src={modelBg2}
             width={1080}
             height={1920}
           />
         </section>
-        <section className="p-4">
-          <h1 className="font-bold text-center">RECENT POSTS</h1>
+        <section className="w-full p-4 md:w-1/2 md:p-0">
           <BlogRender />
         </section>
       </main>
